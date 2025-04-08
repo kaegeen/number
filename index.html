@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Random Number Generator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-black min-h-screen flex items-center justify-center">
+  <div class="w-full max-w-md text-center border p-8 rounded shadow">
+    <h1 class="text-2xl font-semibold mb-4">Random Number Generator</h1>
+    <p class="mb-2">Min:</p>
+    <input id="min" type="number" value="1" class="border px-2 py-1 w-full mb-4" />
+    <p class="mb-2">Max:</p>
+    <input id="max" type="number" value="100" class="border px-2 py-1 w-full mb-4" />
+    <button onclick="generate()" class="border px-4 py-2 w-full">Generate</button>
+    <div id="result" class="mt-6 text-xl"></div>
+  </div>
+
+  <script>
+    function generate() {
+      const min = parseInt(document.getElementById('min').value, 10);
+      const max = parseInt(document.getElementById('max').value, 10);
+      const result = Math.floor(Math.random() * (max - min + 1)) + min;
+      document.getElementById('result').textContent = `Result: ${result}`;
+    }
+  </script>
+</body>
+</html>
